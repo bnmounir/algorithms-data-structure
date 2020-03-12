@@ -20,13 +20,20 @@ function reverse(str) {
     // console.log(arr);
     // return arr.join('');
     // SOLUTION 3
-    // let reversed = '';
+    // let revStr = '';
     // for (let char of str) {
-    //     reversed = char + reversed;
+    //     revStr = char + revStr;
     // }
-    // return reversed;
+    // return revStr;
     //SOLUTION 4
     return str.split('').reduce((Accu, Next) => Next + Accu, '');
+    //SOLUTION 5
+    // const arr = str.split('');
+    // const revArr = [];
+    // for (let i = 0; i < str.length; i++) {
+    //     revArr.push(arr.pop());
+    // }
+    // return revArr.join('');
 }
 reverse('hello');
 

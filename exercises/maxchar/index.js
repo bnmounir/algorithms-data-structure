@@ -6,23 +6,37 @@
 // maxChar("apple 1231111") === "1"
 
 function maxChar(str) {
-    const counterObj = {};
-    let max = 0;
-    let keyStr = '';
+    const strMap = {};
     for (let char of str) {
-        counterObj[char] ? counterObj[char]++ : (counterObj[char] = 1);
+        !strMap[char] ? (strMap[char] = 1) : strMap[char]++;
     }
-    for (let high in counterObj) {
-        counterObj[high] >= max
-            ? (max = counterObj[high]) && (keyStr = high)
-            : max;
+    let repeatedTimes = 0;
+    let charRepeated = '';
+    for (let char in strMap) {
+        if (strMap[char] > repeatedTimes) {
+            repeatedTimes = strMap[char];
+            charRepeated = char;
+        }
     }
-    // for (let [key, value] of Object.entries(counterObj)) {
-    //     if (value === max) {
-    //         keyStr = key;
-    //     }
-    // }
-    return keyStr;
+    return charRepeated;
 }
 
 module.exports = maxChar;
+
+// const counterObj = {};
+// let max = 0;
+// let keyStr = '';
+// for (let char of str) {
+//     counterObj[char] ? counterObj[char]++ : (counterObj[char] = 1);
+// }
+// for (let high in counterObj) {
+//     counterObj[high] >= max
+//         ? (max = counterObj[high]) && (keyStr = high)
+//         : max;
+// }
+// for (let [key, value] of Object.entries(counterObj)) {
+//     if (value === max) {
+//         keyStr = key;
+//     }
+// }
+// return keyStr;

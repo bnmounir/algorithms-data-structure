@@ -22,15 +22,37 @@ function reverseInt(n) {
     //     );
     // }
     //SOLUTION 2
-    const sign = Math.sign(n);
+    // const sign = Math.sign(n);
     // const abs = Math.abs(n); // get rid of the negative sign
-    const reversedStr = n
-        .toString()
-        .split('')
-        .reverse()
-        .join('');
+    // const reversedStr = n
+    //     .toString()
+    //     .split('')
+    //     .reverse()
+    //     .join('');
     // parseInt going to evaluate only number getting rid of the negative sign on the other side of reverse like so -501 > "105-" > to 105
-    return sign * parseInt(reversedStr);
+    // return sign * parseInt(reversedStr);
+
+    //sol 3
+    // const isNegative = n < 0;
+    // const revNum = parseInt(
+    //     Math.abs(n)
+    //         .toString()
+    //         .split('')
+    //         .reverse()
+    //         .join('')
+    // );
+    // if (isNegative) return revNum * -1;
+    // return revNum;
+
+    //sol 4
+    const revNum = parseInt(
+        Math.abs(n)
+            .toString()
+            .split('')
+            .reverse()
+            .join('')
+    );
+    return revNum * Math.sign(n);
 }
 
 module.exports = reverseInt;
