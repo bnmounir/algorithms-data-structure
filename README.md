@@ -1,3 +1,1 @@
-# AlgoCasts
-
-Companion repo to a course on Udemy.com
+# algorithms and data structure prep kit
