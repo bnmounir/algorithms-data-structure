@@ -20,7 +20,7 @@ function memoize(fn) {
 
 function slowFib(n) {
     if (n < 2) return n;
-    return fib(n - 2) + fib(n - 1);
+    return slowFib(n - 2) + slowFib(n - 1);
 }
 
 const fib = memoize(slowFib);
