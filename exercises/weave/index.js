@@ -24,6 +24,41 @@
 
 const Queue = require('./queue');
 
-function weave(sourceOne, sourceTwo) {}
+// Recursion
+function weave(sourceOne, sourceTwo, resQueue = new Queue()) {
+    if (!sourceOne.peek() && !sourceTwo.peek()) return resQueue;
+    if (sourceOne.peek()) resQueue.add(sourceOne.remove());
+    if (sourceTwo.peek()) resQueue.add(sourceTwo.remove());
+    return weave(sourceOne, sourceTwo, resQueue);
+}
 
 module.exports = weave;
+
+// Recursion
+// function weave(sourceOne, sourceTwo, resQueue = new Queue()) {
+//     if (!sourceOne.peek() && !sourceTwo.peek()) {
+//         console.log('No peeks in both queues: ', resQueue);
+//         return resQueue;
+//     }
+//     if (sourceOne.peek()) {
+//         resQueue.add(sourceOne.remove());
+//     }
+//     if (sourceTwo.peek()) {
+//         resQueue.add(sourceTwo.remove());
+//     }
+//     return weave(sourceOne, sourceTwo, resQueue);
+// }
+
+// while loop
+// function weave(sourceOne, sourceTwo) {
+//     const resQueue = new Queue();
+//     while (sourceOne.peek() || sourceTwo.peek()) {
+//         if (sourceOne.peek()) {
+//             resQueue.add(sourceOne.remove());
+//         }
+//         if (sourceTwo.peek()) {
+//             resQueue.add(sourceTwo.remove());
+//         }
+//     }
+//     return resQueue;
+// }
